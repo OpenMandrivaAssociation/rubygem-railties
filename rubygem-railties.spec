@@ -2,7 +2,7 @@
 Summary:	Web-application framework with template engine, control-flow layer, and ORM
 Name:		rubygem-%{gemname}
 Version:	3.2.1
-Release:	%mkrel 1
+Release:	2
 Source0:	http://rubygems.org/downloads/%{gemname}-%{version}.gem
 License:	MIT
 Group:		System/Servers
