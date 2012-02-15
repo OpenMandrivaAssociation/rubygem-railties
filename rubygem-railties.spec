@@ -1,42 +1,48 @@
-%define gemname railties
-Summary:	Web-application framework with template engine, control-flow layer, and ORM
-Name:		rubygem-%{gemname}
+# Generated from railties-3.2.1.gem by gem2rpm5 0.6.7 -*- rpm-spec -*-
+%define	rbname	railties
+
+Summary:	Tools for creating, working with, and running Rails applications
+Name:		rubygem-%{rbname}
+
 Version:	3.2.1
-Release:	2
-Source0:	http://rubygems.org/downloads/%{gemname}-%{version}.gem
-License:	MIT
-Group:		System/Servers
-Url:		http://www.rubyonrails.org/
-BuildRoot:	%{_tmppath}/%{gemname}-%{version}-%{release}-buildroot
+Release:	3
+Group:		Development/Ruby
+License:	GPLv2+ or Ruby
+URL:		http://www.rubyonrails.org
+Source0:	http://rubygems.org/gems/%{rbname}-%{version}.gem
+BuildRequires:	rubygems 
 BuildArch:	noarch
-BuildRequires:	ruby-RubyGems
 
 %description
-Rails is a full-stack framework for developing database-backed web
-applications according to the Model-View-Control pattern. From the
-Ajax in the view, to the request and response in the controller, to
-the domain model wrapping the database, Rails gives you a pure-Ruby
-development environment. To go live, all you need to add is a database
-and a web server.
+Rails internals: application bootup, plugins, generators, and rake tasks.
+
+%package	doc
+Summary:	Documentation for %{name}
+Group:		Books/Computer books
+Requires:	%{name} = %{EVRD}
+
+%description	doc
+Documents, RDoc & RI documentation for %{name}.
 
 %prep
-%setup -c
+%setup -q
 
 %build
+%gem_build -f guides
 
 %install
-rm -rf $RPM_BUILD_ROOT
-
-gem install -E -n %{buildroot}%{_bindir} --local --install-dir %{buildroot}/%{ruby_gemdir} --force %{SOURCE0}
-
-rm -rf %{buildroot}%{ruby_gemdir}/cache
-
-%clean
-rm -rf $RPM_BUILD_ROOT
+%gem_install
 
 %files
-%defattr(-,root,root)
 %{_bindir}/rails
-%{ruby_gemdir}/gems/%{gemname}-%{version}
-%{ruby_gemdir}/specifications/%{gemname}-%{version}.gemspec
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/bin
+%{ruby_gemdir}/gems/%{rbname}-%{version}/bin/rails
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib
+%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/*
+%{ruby_gemdir}/specifications/%{rbname}-%{version}.gemspec
 
+%files doc
+%{ruby_gemdir}/doc/%{rbname}-%{version}
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/guides
+%{ruby_gemdir}/gems/%{rbname}-%{version}/guides/*
