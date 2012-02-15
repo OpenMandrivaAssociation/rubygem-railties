@@ -10,6 +10,7 @@ Group:		Development/Ruby
 License:	GPLv2+ or Ruby
 URL:		http://www.rubyonrails.org
 Source0:	http://rubygems.org/gems/%{rbname}-%{version}.gem
+Source1:	%{name}.rpmlintrc
 BuildRequires:	rubygems 
 BuildArch:	noarch
 
