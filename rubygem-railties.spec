@@ -5,7 +5,7 @@ Summary:	Tools for creating, working with, and running Rails applications
 Name:		rubygem-%{rbname}
 
 Version:	3.2.3
-Release:	1
+Release:	2
 Group:		Development/Ruby
 License:	GPLv2+ or Ruby
 URL:		http://www.rubyonrails.org
