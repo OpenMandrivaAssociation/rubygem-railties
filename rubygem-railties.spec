@@ -8,7 +8,7 @@ Version:	3.2.3
 Release:	2
 Group:		Development/Ruby
 License:	GPLv2+ or Ruby
-URL:		http://www.rubyonrails.org
+URL:		https://www.rubyonrails.org
 Source0:	http://rubygems.org/gems/%{rbname}-%{version}.gem
 Source1:	%{name}.rpmlintrc
 BuildRequires:	rubygems 
